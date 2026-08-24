@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { BladeProvider } from "@razorpay/blade/components";
 import { bladeTheme } from "@razorpay/blade/tokens";
+import { I18nProvider } from "@razorpay/i18nify-react";
 
 /**
  * Blade renders through styled-components, which cannot run in this project's
@@ -9,8 +10,11 @@ import { bladeTheme } from "@razorpay/blade/tokens";
  */
 export function BladeRoot({ children }: { children: ReactNode }) {
   return (
-    <BladeProvider themeTokens={bladeTheme} colorScheme="light">
-      {children}
-    </BladeProvider>
+    <I18nProvider initData={{ locale: "en-IN", currency: "INR" }}>
+      <BladeProvider themeTokens={bladeTheme} colorScheme="light">
+        {children}
+      </BladeProvider>
+    </I18nProvider>
   );
 }
+
