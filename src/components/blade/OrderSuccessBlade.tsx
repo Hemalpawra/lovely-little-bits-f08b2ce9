@@ -28,7 +28,6 @@ import {
   PackageIcon,
   RefreshIcon,
   ShieldIcon,
-  ShoppingBagIcon,
   SparklesIcon,
   StepGroup,
   StepItem,
