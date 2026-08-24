@@ -18,38 +18,31 @@ import { useState } from "react";
 import { ProductCard } from "@/components/store/ProductCard";
 import { SiteFooter } from "@/components/store/SiteFooter";
 import { SiteHeader } from "@/components/store/SiteHeader";
-import { brands, categories, categoryName, filterProducts, formatPrice } from "@/lib/catalog";
-
-type ProductSearch = {
-  q?: string;
-  category?: string;
-  brands?: string[];
-  maxPrice?: number;
-  inStock?: boolean;
-  onSale?: boolean;
-  minRating?: number;
-  sort?: string;
-  view?: string;
-  page?: number;
-};
+import {
+  brands,
+  categories,
+  categoryName,
+  filterProducts,
+  formatPrice,
+  type ProductSearch,
+} from "@/lib/catalog";
 
 const MAX_PRICE = 100000;
 const PER_PAGE = 8;
 
 export const Route = createFileRoute("/products/")({
   validateSearch: (search: Record<string, unknown>): ProductSearch => ({
-    q: typeof search.q === "string" ? search.q : undefined,
-    category: typeof search.category === "string" ? search.category : undefined,
-    brands: Array.isArray(search.brands) ? search.brands.map(String) : undefined,
-    maxPrice: Number.isFinite(Number(search.maxPrice)) && search.maxPrice !== undefined
-      ? Number(search.maxPrice)
-      : undefined,
-    inStock: search.inStock === true || search.inStock === "true" ? true : undefined,
-    onSale: search.onSale === true || search.onSale === "true" ? true : undefined,
-    minRating: search.minRating !== undefined ? Number(search.minRating) || undefined : undefined,
-    sort: typeof search.sort === "string" ? search.sort : undefined,
-    view: search.view === "list" ? "list" : undefined,
-    page: search.page !== undefined ? Number(search.page) || 1 : undefined,
+    q: typeof search["q"] === "string" ? search["q"] : undefined,
+    category: typeof search["category"] === "string" ? search["category"] : undefined,
+    brands: Array.isArray(search["brands"]) ? search["brands"].map(String) : undefined,
+    maxPrice: search["maxPrice"] !== undefined ? Number(search["maxPrice"]) || undefined : undefined,
+    inStock: search["inStock"] === true || search["inStock"] === "true" ? true : undefined,
+    onSale: search["onSale"] === true || search["onSale"] === "true" ? true : undefined,
+    minRating:
+      search["minRating"] !== undefined ? Number(search["minRating"]) || undefined : undefined,
+    sort: typeof search["sort"] === "string" ? search["sort"] : undefined,
+    view: search["view"] === "list" ? "list" : undefined,
+    page: search["page"] !== undefined ? Number(search["page"]) || 1 : undefined,
   }),
   head: () => ({
     meta: [
