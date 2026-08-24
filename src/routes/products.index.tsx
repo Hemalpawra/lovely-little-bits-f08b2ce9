@@ -82,7 +82,7 @@ const assurances = [
 
 function ProductsPage() {
   const search = Route.useSearch();
-  const navigate = useNavigate({ from: "/products" });
+  const navigate = useNavigate();
   const [priceInput, setPriceInput] = useState(String(search.maxPrice ?? MAX_PRICE));
 
   const q = search.q ?? "";
@@ -96,8 +96,8 @@ function ProductsPage() {
   const view = search.view ?? "grid";
   const page = Math.max(1, search.page ?? 1);
 
-  const setSearch = (patch: ProductSearch) =>
-    navigate({ search: (prev) => ({ ...prev, page: 1, ...patch }) });
+  const go = (next: ProductSearch) => navigate({ to: "/products", search: next });
+  const setSearch = (patch: ProductSearch) => go({ ...search, page: 1, ...patch });
 
   const results = filterProducts({
     q,
@@ -129,10 +129,11 @@ function ProductsPage() {
       : []),
   ];
 
-  const clearAll = () =>
-    navigate({
-      search: {},
-    });
+  const clearAll = () => {
+    setPriceInput(String(MAX_PRICE));
+    go({});
+  };
+
 
   const toggleBrand = (brand: string) =>
     setSearch({
