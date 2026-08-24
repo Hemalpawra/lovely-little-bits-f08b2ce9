@@ -447,12 +447,14 @@ export default function OrderSuccessBlade() {
                               color={s.state === "done" ? "positive" : s.state === "current" ? "information" : "neutral"}
                             />
                           }
-                          {...(s.state === "current"
-                            ? { trailing: <Badge color="information">On the way</Badge> }
-                            : {})}
                         />
                       ))}
                     </StepGroup>
+                    <Box display="flex" justifyContent="center">
+                      <Badge color="information" size="medium" icon={BoxIcon}>
+                        Your order is on the way
+                      </Badge>
+                    </Box>
                     <Divider />
                     <Box
                       display="flex"
