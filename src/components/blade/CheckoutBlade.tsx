@@ -287,7 +287,9 @@ export default function CheckoutBlade() {
       },
       notes: { shipping: method.title, pincode: current?.pincode ?? "" },
       theme: { color: "#0f62fe" },
-      handler: () => setStatus({ type: "positive", text: "Payment successful. Your order is confirmed." }),
+      handler: () => {
+        window.location.href = "/order-success";
+      },
     });
     rzp.open();
   };
