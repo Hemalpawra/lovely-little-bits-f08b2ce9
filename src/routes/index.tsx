@@ -77,6 +77,7 @@ function SectionHeader({
 }
 
 function Index() {
+  const { openChat } = useAiChat();
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />

@@ -82,6 +82,7 @@ const assurances = [
 ];
 
 function ProductsPage() {
+  const { openChat } = useAiChat();
   const search = Route.useSearch();
   const navigate = useNavigate();
   const [priceInput, setPriceInput] = useState(String(search.maxPrice ?? MAX_PRICE));

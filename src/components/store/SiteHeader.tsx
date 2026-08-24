@@ -29,6 +29,7 @@ export function Logo() {
 }
 
 export function SiteHeader({ initialQuery = "" }: { initialQuery?: string }) {
+  const { openChat } = useAiChat();
   const navigate = useNavigate();
   const [query, setQuery] = useState(initialQuery);
 
