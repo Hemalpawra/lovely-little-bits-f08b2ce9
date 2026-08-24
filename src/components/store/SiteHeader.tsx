@@ -90,12 +90,13 @@ export function SiteHeader({ initialQuery = "" }: { initialQuery?: string }) {
           <button onClick={() => openChat()} className="hidden items-center gap-1.5 rounded-lg border border-primary/40 px-3.5 py-2 text-sm font-semibold text-primary transition-colors hover:bg-brand-soft sm:flex">
             <Sparkles className="h-4 w-4" /> Ask AI
           </button>
-          <button aria-label="Cart" className="relative rounded-lg p-2 hover:bg-muted">
+          <Link to="/cart" aria-label="Cart" className="relative rounded-lg p-2 hover:bg-muted">
             <ShoppingCart className="h-5 w-5" />
             <span className="absolute -right-0.5 -top-0.5 grid h-4 w-4 place-items-center rounded-full bg-primary text-[10px] font-semibold text-primary-foreground">
-              2
+              3
             </span>
-          </button>
+          </Link>
+
           <button aria-label="Account" className="rounded-lg p-2 hover:bg-muted">
             <User className="h-5 w-5" />
           </button>
