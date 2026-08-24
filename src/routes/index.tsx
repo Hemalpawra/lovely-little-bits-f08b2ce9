@@ -1,3 +1,4 @@
+import { useAiChat } from "@/components/blade/AiChatProvider";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   RotateCcw,
@@ -103,7 +104,7 @@ function Index() {
                 >
                   Shop Now <ArrowRight className="h-4 w-4" />
                 </Link>
-                <button className="flex items-center gap-2 rounded-lg border border-border bg-background px-5 py-3 text-sm font-semibold text-primary">
+                <button onClick={() => openChat()} className="flex items-center gap-2 rounded-lg border border-border bg-background px-5 py-3 text-sm font-semibold text-primary">
                   <Sparkles className="h-4 w-4" /> Ask AI Assistant
                 </button>
               </div>
@@ -197,7 +198,7 @@ function Index() {
             ))}
           </ul>
           <div className="text-center">
-            <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90">
+            <button onClick={() => openChat()} className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90">
               <Sparkles className="h-4 w-4" /> Ask AI Assistant
             </button>
             <p className="mt-2 text-[11px] text-muted-foreground">Powered by Merchant AI Gateway</p>
@@ -263,7 +264,7 @@ function Index() {
 
       <SiteFooter />
 
-      <button className="fixed bottom-5 right-5 z-40 flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-lg hover:opacity-90">
+      <button onClick={() => openChat()} className="fixed bottom-5 right-5 z-40 flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-lg hover:opacity-90">
         <MessageSquare className="h-4 w-4" /> Ask AI
       </button>
     </div>
