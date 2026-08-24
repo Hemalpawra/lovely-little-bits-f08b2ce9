@@ -376,7 +376,7 @@ function ProductsPage() {
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
                   <button
                     key={n}
-                    onClick={() => navigate({ search: (prev) => ({ ...prev, page: n }) })}
+                    onClick={() => go({ ...search, page: n })}
                     aria-current={n === current ? "page" : undefined}
                     className={`h-9 w-9 rounded-lg border text-xs font-semibold ${
                       n === current
@@ -388,11 +388,7 @@ function ProductsPage() {
                   </button>
                 ))}
                 <button
-                  onClick={() =>
-                    navigate({
-                      search: (prev) => ({ ...prev, page: Math.min(totalPages, current + 1) }),
-                    })
-                  }
+                  onClick={() => go({ ...search, page: Math.min(totalPages, current + 1) })}
                   aria-label="Next page"
                   className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:border-primary"
                 >

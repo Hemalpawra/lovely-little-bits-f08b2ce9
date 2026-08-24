@@ -13,11 +13,11 @@ export type Product = {
   category: string;
   img: string;
   price: number;
-  mrp?: number;
+  mrp?: number | undefined;
   rating: number;
   reviews: number;
   stock: "In stock" | "Low stock";
-  badge?: "Bestseller" | "New";
+  badge?: "Bestseller" | "New" | undefined;
   popularity: number;
   description: string;
   highlights: string[];

@@ -17,7 +17,7 @@ import { ProductCard } from "@/components/store/ProductCard";
 import { SiteFooter } from "@/components/store/SiteFooter";
 import { SiteHeader } from "@/components/store/SiteHeader";
 import hero from "@/assets/hero-tech.jpg";
-import { categories, formatPrice, products } from "@/lib/catalog";
+import { categories, formatPrice, products, type ProductSearch } from "@/lib/catalog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -59,7 +59,7 @@ function SectionHeader({
 }: {
   title: string;
   action: string;
-  search?: Record<string, unknown>;
+  search?: ProductSearch;
 }) {
   return (
     <div className="mb-5 flex items-end justify-between">
