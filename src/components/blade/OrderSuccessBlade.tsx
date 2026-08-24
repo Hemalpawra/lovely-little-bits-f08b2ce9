@@ -19,7 +19,7 @@ import {
   HeadsetIcon,
   IconButton,
   Link,
-  ListViewIcon,
+  ListIcon,
   MailIcon,
   MapPinIcon,
   Modal,
@@ -236,7 +236,7 @@ export default function OrderSuccessBlade() {
                 <CardBody>
                   <Box display="flex" flexDirection="column" gap="spacing.5" width="100%">
                     <Box display="flex" flexDirection="row" gap="spacing.3" alignItems="center">
-                      <ListViewIcon size="medium" color="surface.icon.gray.subtle" />
+                      <ListIcon size="medium" color="surface.icon.gray.subtle" />
                       <Heading size="small">Order Details</Heading>
                     </Box>
                     <Divider />
