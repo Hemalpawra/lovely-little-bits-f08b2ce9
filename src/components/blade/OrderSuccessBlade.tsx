@@ -18,7 +18,6 @@ import {
   Heading,
   HeadsetIcon,
   IconButton,
-  Link,
   ListIcon,
   MailIcon,
   MapPinIcon,
@@ -152,7 +151,7 @@ export default function OrderSuccessBlade() {
           ) : null}
 
           {/* Success banner */}
-          <Card elevation="lowRaised" padding="spacing.0" backgroundColor="surface.background.primary.subtle">
+          <Card elevation="lowRaised" padding="spacing.0" backgroundColor="surface.background.gray.intense">
             <CardBody>
               <Box
                 display="flex"
@@ -598,9 +597,7 @@ export default function OrderSuccessBlade() {
             <Text size="small" color="surface.text.gray.muted">
               We appreciate your trust and look forward to serving you again!
             </Text>
-            <Link href="/products" variant="button">
-              Continue Shopping
-            </Link>
+            <Button onClick={() => { window.location.href = "/products"; }}>Continue Shopping</Button>
           </Box>
         </Box>
       </Box>
