@@ -95,10 +95,6 @@ export function SiteHeader({ initialQuery = "" }: { initialQuery?: string }) {
               3
             </span>
           </Link>
-
-          <button aria-label="Account" className="rounded-lg p-2 hover:bg-muted">
-            <User className="h-5 w-5" />
-          </button>
         </div>
       </header>
     </>
