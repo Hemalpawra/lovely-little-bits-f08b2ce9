@@ -224,9 +224,10 @@ export default function OrderSuccessBlade() {
             </CardBody>
           </Card>
 
-          {/* Order details + Invoice */}
+          {/* Order details + Items + Invoice */}
           <Box display="flex" flexDirection={{ base: "column", l: "row" }} gap="spacing.6" alignItems="stretch">
-            <Box flex="2" minWidth="320px" display="flex">
+            <Box flex="2" minWidth="320px" display="flex" flexDirection={{ base: "column", m: "row" }} gap="spacing.6">
+              {/* Order Details */}
               <Card elevation="lowRaised" padding="spacing.7" width="100%">
                 <CardBody>
                   <Box display="flex" flexDirection="column" gap="spacing.5" width="100%">
@@ -235,107 +236,119 @@ export default function OrderSuccessBlade() {
                       <Heading size="small">Order Details</Heading>
                     </Box>
                     <Divider />
-                    <Box display="flex" flexDirection={{ base: "column", m: "row" }} gap="spacing.7">
-                      <Box flex="1" display="flex" flexDirection="column" gap="spacing.4">
-                        <Row label="Order ID">
-                          <Text weight="semibold" size="small">
-                            {order.id}
-                          </Text>
-                        </Row>
-                        <Row label="Payment ID">
-                          <Text weight="semibold" size="small">
-                            {order.paymentId}
-                          </Text>
-                        </Row>
-                        <Row label="Customer Name">
-                          <Text weight="semibold" size="small">
-                            {order.customer}
-                          </Text>
-                        </Row>
-                        <Row label="Email">
-                          <Text weight="semibold" size="small">
-                            {order.email}
-                          </Text>
-                        </Row>
-                        <Row label="Phone">
-                          <Text weight="semibold" size="small">
-                            {order.phone}
-                          </Text>
-                        </Row>
-                        <Row label="Payment Method">
-                          <Badge color="information" size="small">
-                            {order.method}
-                          </Badge>
-                        </Row>
-                        <Row label="Payment Time">
-                          <Text weight="semibold" size="small">
-                            {order.time}
-                          </Text>
-                        </Row>
-                        <Row label="Shipping Address">
+                    <Box display="flex" flexDirection="column" gap="spacing.4">
+                      <Row label="Order ID">
+                        <Text weight="semibold" size="small">
+                          {order.id}
+                        </Text>
+                      </Row>
+                      <Row label="Payment ID">
+                        <Text weight="semibold" size="small">
+                          {order.paymentId}
+                        </Text>
+                      </Row>
+                      <Row label="Customer Name">
+                        <Text weight="semibold" size="small">
+                          {order.customer}
+                        </Text>
+                      </Row>
+                      <Row label="Email">
+                        <Text weight="semibold" size="small">
+                          {order.email}
+                        </Text>
+                      </Row>
+                      <Row label="Phone">
+                        <Text weight="semibold" size="small">
+                          {order.phone}
+                        </Text>
+                      </Row>
+                      <Row label="Payment Method">
+                        <Badge color="information" size="small">
+                          {order.method}
+                        </Badge>
+                      </Row>
+                      <Row label="Payment Time">
+                        <Text weight="semibold" size="small">
+                          {order.time}
+                        </Text>
+                      </Row>
+                      <Row label="Shipping Address">
+                        <Box>
                           <Text size="small" weight="semibold">
                             {order.customer}
                           </Text>
-                        </Row>
-                        <Text size="xsmall" color="surface.text.gray.muted" textAlign="right">
-                          {order.address}
-                        </Text>
-                      </Box>
+                          <Text size="xsmall" color="surface.text.gray.muted">
+                            {order.address}
+                          </Text>
+                        </Box>
+                      </Row>
+                    </Box>
+                  </Box>
+                </CardBody>
+              </Card>
 
-                      <Box flex="1" display="flex" flexDirection="column" gap="spacing.4">
-                        <Text size="small" weight="semibold">
-                          Items ({items.length})
-                        </Text>
-                        <Divider />
-                        {items.map((l) => (
-                          <Box
-                            key={l.slug}
-                            display="flex"
-                            flexDirection="row"
-                            gap="spacing.4"
-                            alignItems="center"
-                            justifyContent="space-between"
-                          >
-                            <Box display="flex" flexDirection="row" gap="spacing.4" alignItems="center">
-                              <Box
-                                width="56px"
-                                height="56px"
-                                borderRadius="medium"
-                                borderWidth="thin"
-                                borderColor="surface.border.gray.muted"
-                                overflow="hidden"
-                                flexShrink={0}
-                                backgroundColor="surface.background.gray.intense"
-                              >
-                                <img
-                                  src={l.product.img}
-                                  alt={l.product.name}
-                                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                                />
-                              </Box>
-                              <Box>
-                                <Text size="small" weight="semibold">
-                                  {l.product.name}
-                                </Text>
-                                <Text size="xsmall" color="surface.text.gray.muted">
-                                  {l.variant} · Qty: {l.qty}
-                                </Text>
-                              </Box>
+              {/* Items & Amounts */}
+              <Card elevation="lowRaised" padding="spacing.7" width="100%">
+                <CardBody>
+                  <Box display="flex" flexDirection="column" gap="spacing.5" width="100%">
+                    <Box display="flex" flexDirection="row" gap="spacing.3" alignItems="center">
+                      <PackageIcon size="medium" color="surface.icon.gray.subtle" />
+                      <Heading size="small">Items & Amounts</Heading>
+                    </Box>
+                    <Divider />
+                    <Box display="flex" flexDirection="column" gap="spacing.4">
+                      <Text size="small" weight="semibold">
+                        Items ({items.length})
+                      </Text>
+                      <Divider />
+                      {items.map((l) => (
+                        <Box
+                          key={l.slug}
+                          display="flex"
+                          flexDirection="row"
+                          gap="spacing.4"
+                          alignItems="center"
+                          justifyContent="space-between"
+                        >
+                          <Box display="flex" flexDirection="row" gap="spacing.4" alignItems="center">
+                            <Box
+                              width="56px"
+                              height="56px"
+                              borderRadius="medium"
+                              borderWidth="thin"
+                              borderColor="surface.border.gray.muted"
+                              overflow="hidden"
+                              flexShrink={0}
+                              backgroundColor="surface.background.gray.intense"
+                            >
+                              <img
+                                src={l.product.img}
+                                alt={l.product.name}
+                                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                              />
                             </Box>
-                            <Amount value={l.product.price * l.qty} currency="INR" size="small" weight="semibold" />
+                            <Box>
+                              <Text size="small" weight="semibold">
+                                {l.product.name}
+                              </Text>
+                              <Text size="xsmall" color="surface.text.gray.muted">
+                                {l.variant} · Qty: {l.qty}
+                              </Text>
+                            </Box>
                           </Box>
-                        ))}
-                        <Divider />
-                        <Row label="Subtotal">
-                          <Amount value={subtotal} currency="INR" size="small" />
-                        </Row>
-                        <Row label="Tax (GST 18%)">
-                          <Amount value={tax} currency="INR" size="small" />
-                        </Row>
-                        <Row label="Amount Paid">
-                          <Amount value={total} currency="INR" size="medium" weight="semibold" />
-                        </Row>
-                      </Box>
+                          <Amount value={l.product.price * l.qty} currency="INR" size="small" weight="semibold" />
+                        </Box>
+                      ))}
+                      <Divider />
+                      <Row label="Subtotal">
+                        <Amount value={subtotal} currency="INR" size="small" />
+                      </Row>
+                      <Row label="Tax (GST 18%)">
+                        <Amount value={tax} currency="INR" size="small" />
+                      </Row>
+                      <Row label="Amount Paid">
+                        <Amount value={total} currency="INR" size="medium" weight="semibold" />
+                      </Row>
                     </Box>
                   </Box>
                 </CardBody>
