@@ -11,7 +11,6 @@ import {
   Package,
   Sparkles,
   ShoppingCart,
-  User,
 } from "lucide-react";
 import { useState } from "react";
 
