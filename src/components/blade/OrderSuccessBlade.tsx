@@ -35,7 +35,6 @@ import {
 } from "@razorpay/blade/components";
 
 import { BladeRoot } from "./BladeRoot";
-import { useAiChat } from "./AiChatProvider";
 import { getProduct } from "@/lib/catalog";
 
 const order = {
