@@ -1,25 +1,12 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import {
-  ChevronRight,
-  CreditCard,
-  Heart,
-  RotateCcw,
-  ShieldCheck,
-  ShoppingCart,
-  Sparkles,
-  Truck,
-} from "lucide-react";
+import { ClientOnly, createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { lazy, Suspense } from "react";
 
-import { ProductCard, Stars } from "@/components/store/ProductCard";
 import { SiteFooter } from "@/components/store/SiteFooter";
 import { SiteHeader } from "@/components/store/SiteHeader";
-import {
-  categoryName,
-  discountPct,
-  formatPrice,
-  getProduct,
-  relatedProducts,
-} from "@/lib/catalog";
+import { formatPrice, getProduct, relatedProducts } from "@/lib/catalog";
+
+const BladeProductDetail = lazy(() => import("@/components/blade/ProductDetailBlade"));
+
 
 export const Route = createFileRoute("/products/$slug")({
   loader: ({ params }) => {
