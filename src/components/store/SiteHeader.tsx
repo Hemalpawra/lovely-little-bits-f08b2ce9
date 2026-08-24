@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-import { categories } from "@/lib/catalog";
 
 export function Logo() {
   return (
