@@ -4,7 +4,6 @@ import {
   ArrowRight,
   ChevronRight,
   Grid2X2,
-  List,
   Search,
   Sparkles,
   X,
