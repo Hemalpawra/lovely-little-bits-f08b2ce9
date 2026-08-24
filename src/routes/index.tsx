@@ -13,7 +13,6 @@ import {
   User,
   Star,
   ArrowRight,
-  ChevronRight,
   CheckCircle2,
   Wallet,
   CreditCard,
@@ -479,7 +478,7 @@ function Index() {
           {trustItems.map(({ icon: Icon, title, sub }) => (
             <div key={title} className="flex items-center gap-3 px-5 py-5">
               <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-muted">
-                <Icon className="h-4.5 w-4.5 text-foreground" />
+                <Icon className="h-4 w-4 text-foreground" />
               </span>
               <span>
                 <span className="block text-sm font-semibold">{title}</span>
