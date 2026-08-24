@@ -1,7 +1,6 @@
 import { ClientOnly, createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 
-import { SiteFooter } from "@/components/store/SiteFooter";
 import { SiteHeader } from "@/components/store/SiteHeader";
 
 const OrderSuccessBlade = lazy(() => import("@/components/blade/OrderSuccessBlade"));
@@ -42,7 +41,6 @@ function OrderSuccessPage() {
           </Suspense>
         </ClientOnly>
       </main>
-      <SiteFooter />
     </div>
   );
 }

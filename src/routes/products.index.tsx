@@ -16,7 +16,6 @@ import {
 import { useState } from "react";
 
 import { ProductCard } from "@/components/store/ProductCard";
-import { SiteFooter } from "@/components/store/SiteFooter";
 import { SiteHeader } from "@/components/store/SiteHeader";
 import {
   brands,
@@ -433,7 +432,6 @@ function ProductsPage() {
         </div>
       </main>
 
-      <SiteFooter />
     </div>
   );
 }
