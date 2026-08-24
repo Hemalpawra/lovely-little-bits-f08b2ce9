@@ -101,30 +101,6 @@ export function SiteHeader({ initialQuery = "" }: { initialQuery?: string }) {
             <User className="h-5 w-5" />
           </button>
         </div>
-        <div className="mx-auto max-w-7xl overflow-x-auto px-4">
-          <ul className="flex items-center gap-7 pb-2.5 text-sm">
-            {categories.map((c) => (
-              <li key={c.slug}>
-                <Link
-                  to="/products"
-                  search={{ category: c.slug, page: 1 }}
-                  className="whitespace-nowrap hover:text-primary"
-                >
-                  {c.name}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link
-                to="/products"
-                search={{ onSale: true, page: 1 }}
-                className="whitespace-nowrap font-medium text-sale"
-              >
-                Deals
-              </Link>
-            </li>
-          </ul>
-        </div>
       </header>
     </>
   );
