@@ -8,10 +8,6 @@ const footerCols = [
     links: ["All Products", "Laptops", "Mobile", "Accessories", "Audio", "Deals"],
   },
   {
-    title: "Help & Support",
-    links: ["Help Center", "Track Order", "Returns & Refunds", "Shipping Info", "FAQ", "Contact Us"],
-  },
-  {
     title: "Policies",
     links: [
       "Terms & Conditions",
@@ -27,7 +23,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-muted/40">
       <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_repeat(3,0.8fr)_1.2fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.3fr_repeat(2,0.8fr)_1.2fr]">
           <div>
             <Logo />
             <p className="mt-4 max-w-xs text-xs leading-relaxed text-muted-foreground">
