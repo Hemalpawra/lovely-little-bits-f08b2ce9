@@ -115,7 +115,7 @@ function CartRow({
       </Box>
 
       <Box flex="1" minWidth="220px" display="flex" flexDirection="column" gap="spacing.2">
-        <Link href={`/products/${product.slug}`} size="medium" variant="button">
+        <Link href={`/products/${product.slug}`} size="medium">
           {product.name}
         </Link>
         <Text size="small" color="surface.text.gray.muted">
@@ -316,7 +316,7 @@ export default function CartBlade({
     return shell(
       <>
         {title}
-        <Card elevation="lowRaised" padding="spacing.8">
+        <Card elevation="lowRaised" padding="spacing.7">
           <CardBody>
             <Box
               display="flex"
@@ -385,7 +385,7 @@ export default function CartBlade({
                   </Box>
                   <ProgressBar
                     value={Math.min(100, (totals.subtotal / FREE_DELIVERY_THRESHOLD) * 100)}
-                    color={remaining > 0 ? "primary" : "positive"}
+                    color="positive"
                     showPercentage={false}
                   />
                 </Box>
@@ -425,7 +425,7 @@ export default function CartBlade({
 
         {/* Summary column */}
         <Box flex="1" minWidth="300px" display="flex" flexDirection="column" gap="spacing.5">
-          <Card elevation="lowRaised" padding="spacing.6">
+          <Card elevation="lowRaised" padding="spacing.7">
             <CardBody>
               <Box display="flex" flexDirection="column" gap="spacing.4">
                 <Heading size="small" as="h2">
@@ -515,7 +515,7 @@ export default function CartBlade({
           </Card>
 
           {/* AI helper */}
-          <Card elevation="lowRaised" padding="spacing.6" backgroundColor="surface.background.primary.subtle">
+          <Card elevation="lowRaised" padding="spacing.7" backgroundColor="surface.background.gray.subtle">
             <CardBody>
               <Box display="flex" flexDirection="column" gap="spacing.4">
                 <Box display="flex" flexDirection="row" gap="spacing.3" alignItems="center">
