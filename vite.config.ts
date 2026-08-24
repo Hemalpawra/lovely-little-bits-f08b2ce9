@@ -12,4 +12,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    // Blade ships styled-components v5 CJS; prebundle it with the app's React copy.
+    optimizeDeps: { include: ["styled-components", "@razorpay/blade/components"] },
+    resolve: { dedupe: ["styled-components", "react", "react-dom"] },
+  },
 });
