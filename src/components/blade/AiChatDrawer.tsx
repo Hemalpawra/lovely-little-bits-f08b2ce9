@@ -133,7 +133,7 @@ function CompareBlock({ items }: { items: Product[] }) {
           </Text>
           <Box>
             <Badge size="xsmall" color="information">
-              {`Best for: ${bestForLabel(item)}`}
+              {`Best for: ${bestForLabel(item, items)}`}
             </Badge>
           </Box>
         </Box>

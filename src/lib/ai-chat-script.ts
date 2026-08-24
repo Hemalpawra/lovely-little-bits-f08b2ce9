@@ -143,7 +143,15 @@ export function getAssistantReply(input: string, lastSuggested: Product[]): Chat
   };
 }
 
-export const bestForLabel = (product: Product): string => {
+export const bestForLabel = (product: Product, all: Product[] = []): string => {
+  if (all.length > 1) {
+    const cheapest = [...all].sort((a, b) => a.price - b.price)[0];
+    const topRated = [...all].sort((a, b) => b.rating - a.rating)[0];
+    const premium = [...all].sort((a, b) => b.price - a.price)[0];
+    if (product.slug === topRated?.slug) return "Overall quality";
+    if (product.slug === cheapest?.slug) return "Tight budgets";
+    if (product.slug === premium?.slug) return "Premium experience";
+  }
   if (product.category === "laptops") return product.price > 80000 ? "Premium performance" : "Value for money";
   if (product.category === "headphones-earbuds")
     return product.rating >= 4.5 ? "Noise cancellation" : "Everyday listening";
