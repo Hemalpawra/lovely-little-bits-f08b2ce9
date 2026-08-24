@@ -4,7 +4,6 @@ import {
   ArrowRight,
   ChevronRight,
   Grid2X2,
-  List,
   Search,
   Sparkles,
   X,
@@ -338,13 +337,6 @@ function ProductsPage() {
                   className={`rounded-lg border p-2 ${view === "grid" ? "border-primary text-primary" : "border-border text-muted-foreground"}`}
                 >
                   <Grid2X2 className="h-4 w-4" />
-                </button>
-                <button
-                  aria-label="List view"
-                  onClick={() => setSearch({ view: "list" })}
-                  className={`rounded-lg border p-2 ${view === "list" ? "border-primary text-primary" : "border-border text-muted-foreground"}`}
-                >
-                  <List className="h-4 w-4" />
                 </button>
               </div>
             </div>
