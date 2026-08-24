@@ -175,3 +175,16 @@ export const getProduct = (slug: string) => products.find((x) => x.slug === slug
 
 export const relatedProducts = (product: Product) =>
   products.filter((x) => x.category === product.category && x.slug !== product.slug).slice(0, 4);
+
+export type ProductSearch = {
+  q?: string | undefined;
+  category?: string | undefined;
+  brands?: string[] | undefined;
+  maxPrice?: number | undefined;
+  inStock?: boolean | undefined;
+  onSale?: boolean | undefined;
+  minRating?: number | undefined;
+  sort?: string | undefined;
+  view?: string | undefined;
+  page?: number | undefined;
+};
