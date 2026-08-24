@@ -203,7 +203,7 @@ function AddressCard({
           Edit
         </Button>
         <Divider orientation="vertical" height="16px" />
-        <Button variant="tertiary" size="xsmall" color="negative" icon={TrashIcon} onClick={onRemove}>
+        <Button variant="tertiary" size="xsmall" icon={TrashIcon} onClick={onRemove}>
           Remove
         </Button>
       </Box>
