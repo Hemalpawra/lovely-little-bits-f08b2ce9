@@ -146,13 +146,11 @@ function loadRazorpay(): Promise<boolean> {
 function AddressCard({
   address,
   isSelected,
-  onSelect,
   onEdit,
   onRemove,
 }: {
   address: Address;
   isSelected: boolean;
-  onSelect: () => void;
   onEdit: () => void;
   onRemove: () => void;
 }) {
@@ -168,25 +166,15 @@ function AddressCard({
       display="flex"
       flexDirection="column"
       gap="spacing.3"
-      onClick={onSelect}
-besides-noop
     >
       <Box display="flex" flexDirection="row" gap="spacing.4" alignItems="center">
-        <RadioGroup
-          label=""
-          value={isSelected ? address.id : ""}
-          onChange={onSelect}
-          accessibilityLabel={`Select address of ${address.name}`}
-        >
-          <Radio value={address.id}>{""}</Radio>
-        </RadioGroup>
-        <Text size="medium" weight="semibold">
-          {address.name}
-        </Text>
+        <Radio value={address.id}>{address.name}</Radio>
         <Badge color="primary" size="small">
           {address.label}
         </Badge>
       </Box>
+
+
 
       <Box display="flex" flexDirection="row" gap="spacing.4" alignItems="center" flexWrap="wrap">
         <Box display="flex" flexDirection="row" gap="spacing.2" alignItems="center">
