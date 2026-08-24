@@ -1,3 +1,4 @@
+import { useAiChat } from "@/components/blade/AiChatProvider";
 import { useState } from "react";
 import {
   Amount,
@@ -150,6 +151,7 @@ function RelatedCard({ item }: { item: Product }) {
 }
 
 export default function ProductDetailBlade({ product, related }: Props) {
+  const { openChat } = useAiChat();
   const [qty, setQty] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
   const off = discountPct(product);
@@ -367,7 +369,7 @@ export default function ProductDetailBlade({ product, related }: Props) {
                   </Button>
                 </Box>
               </Box>
-              <Button variant="tertiary" icon={SparklesIcon} isFullWidth>
+              <Button variant="tertiary" icon={SparklesIcon} isFullWidth onClick={() => openChat(product)}>
                 Ask AI about this product
               </Button>
             </Box>
@@ -545,11 +547,11 @@ export default function ProductDetailBlade({ product, related }: Props) {
                       product.
                     </Text>
                     {aiPrompts.map((q) => (
-                      <Button key={q} variant="tertiary" size="small" isFullWidth>
+                      <Button key={q} variant="tertiary" size="small" isFullWidth onClick={() => openChat(product)}>
                         {q}
                       </Button>
                     ))}
-                    <Button variant="primary" icon={SparklesIcon} isFullWidth>
+                    <Button variant="primary" icon={SparklesIcon} isFullWidth onClick={() => openChat(product)}>
                       Ask AI about this product
                     </Button>
                   </Box>

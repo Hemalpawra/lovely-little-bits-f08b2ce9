@@ -1,3 +1,4 @@
+import { useAiChat } from "@/components/blade/AiChatProvider";
 import { Link, useNavigate } from "@tanstack/react-router";
 import {
   Truck,
@@ -28,6 +29,7 @@ export function Logo() {
 }
 
 export function SiteHeader({ initialQuery = "" }: { initialQuery?: string }) {
+  const { openChat } = useAiChat();
   const navigate = useNavigate();
   const [query, setQuery] = useState(initialQuery);
 
@@ -85,7 +87,7 @@ export function SiteHeader({ initialQuery = "" }: { initialQuery?: string }) {
               <Package className="h-4 w-4" /> Products
             </Link>
           </nav>
-          <button className="hidden items-center gap-1.5 rounded-lg border border-primary/40 px-3.5 py-2 text-sm font-semibold text-primary transition-colors hover:bg-brand-soft sm:flex">
+          <button onClick={() => openChat()} className="hidden items-center gap-1.5 rounded-lg border border-primary/40 px-3.5 py-2 text-sm font-semibold text-primary transition-colors hover:bg-brand-soft sm:flex">
             <Sparkles className="h-4 w-4" /> Ask AI
           </button>
           <button aria-label="Cart" className="relative rounded-lg p-2 hover:bg-muted">

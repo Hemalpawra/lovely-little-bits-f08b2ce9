@@ -1,3 +1,4 @@
+import { useAiChat } from "@/components/blade/AiChatProvider";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -81,6 +82,7 @@ const assurances = [
 ];
 
 function ProductsPage() {
+  const { openChat } = useAiChat();
   const search = Route.useSearch();
   const navigate = useNavigate();
   const [priceInput, setPriceInput] = useState(String(search.maxPrice ?? MAX_PRICE));
@@ -420,7 +422,7 @@ function ProductsPage() {
                   </li>
                 ))}
               </ul>
-              <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-2.5 text-xs font-semibold text-primary-foreground hover:opacity-90">
+              <button onClick={() => openChat()} className="mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-2.5 text-xs font-semibold text-primary-foreground hover:opacity-90">
                 <Sparkles className="h-4 w-4" /> Ask AI Assistant
               </button>
             </div>
