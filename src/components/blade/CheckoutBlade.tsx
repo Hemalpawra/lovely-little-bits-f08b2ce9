@@ -382,20 +382,27 @@ export default function CheckoutBlade() {
                     </Box>
                   ) : (
                     <>
-                      <Box display="flex" flexDirection="row" gap="spacing.5" flexWrap="wrap">
+                      <RadioGroup
+                        label=""
+                        accessibilityLabel="Delivery address"
+                        value={selectedAddress}
+                        onChange={({ value }) => setSelectedAddress(value)}
+                        orientation="horizontal"
+                        flexWrap="wrap"
+                      >
                         {addresses.map((a) => (
                           <AddressCard
                             key={a.id}
                             address={a}
                             isSelected={selectedAddress === a.id}
-                            onSelect={() => setSelectedAddress(a.id)}
                             onEdit={() => openEdit(a)}
                             onRemove={() =>
                               setAddresses((prev) => prev.filter((x) => x.id !== a.id))
                             }
                           />
                         ))}
-                      </Box>
+                      </RadioGroup>
+
                       <Button variant="tertiary" isFullWidth icon={PlusIcon} onClick={openAdd}>
                         Add a new delivery address
                       </Button>
