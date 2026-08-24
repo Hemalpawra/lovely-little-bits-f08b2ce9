@@ -28,7 +28,6 @@ import {
   PackageIcon,
   RefreshIcon,
   ShieldIcon,
-  SparklesIcon,
   StepGroup,
   StepItem,
   StepItemIcon,
