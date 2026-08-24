@@ -182,8 +182,6 @@ export default function ProductDetailBlade({ product, related }: Props) {
                 {gallery.map((src, i) => (
                   <Box
                     key={i}
-                    as="div"
-                    onClick={() => setActiveImage(i)}
                     width="64px"
                     height="64px"
                     borderWidth="thin"
@@ -201,7 +199,13 @@ export default function ProductDetailBlade({ product, related }: Props) {
                     <img
                       src={src}
                       alt={`${product.name} view ${i + 1}`}
-                      style={{ maxWidth: "48px", maxHeight: "48px", objectFit: "contain" }}
+                      onClick={() => setActiveImage(i)}
+                      style={{
+                        maxWidth: "48px",
+                        maxHeight: "48px",
+                        objectFit: "contain",
+                        cursor: "pointer",
+                      }}
                     />
                   </Box>
                 ))}
