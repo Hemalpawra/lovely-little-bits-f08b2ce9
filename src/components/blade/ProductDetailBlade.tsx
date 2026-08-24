@@ -32,7 +32,7 @@ import {
   TabList,
   TabPanel,
   Text,
-  UnorderedList,
+  List,
   ZapIcon,
 } from "@razorpay/blade/components";
 
@@ -182,7 +182,7 @@ export default function ProductDetailBlade({ product, related }: Props) {
                 {gallery.map((src, i) => (
                   <Box
                     key={i}
-                    as="button"
+                    as="div"
                     onClick={() => setActiveImage(i)}
                     width="64px"
                     height="64px"
@@ -254,7 +254,7 @@ export default function ProductDetailBlade({ product, related }: Props) {
             <Box flex="1" minWidth="320px" display="flex" flexDirection="column" gap="spacing.4">
               <Box display="flex" flexDirection="row" justifyContent="space-between">
                 {product.badge ? <Badge color="positive">{product.badge}</Badge> : <Box />}
-                <IconButton icon={HeartIcon} accessibilityLabel="Add to wishlist" size="large" />
+                <IconButton icon={HeartIcon} accessibilityLabel="Add to wishlist" size="large" onClick={() => {}} />
               </Box>
 
               <Heading size="large" as="h1">
@@ -413,11 +413,11 @@ export default function ProductDetailBlade({ product, related }: Props) {
                       <Text size="small" color="surface.text.gray.subtle">
                         {product.description}
                       </Text>
-                      <UnorderedList size="small">
+                      <List variant="unordered" size="small" icon={CheckCircleIcon} iconColor="feedback.icon.positive.intense">
                         {product.highlights.map((h) => (
                           <ListItem key={h}>{h}</ListItem>
                         ))}
-                      </UnorderedList>
+                      </List>
                     </Box>
                     <Box
                       flex="1"
@@ -450,11 +450,11 @@ export default function ProductDetailBlade({ product, related }: Props) {
 
                 <TabPanel value="features">
                   <Box paddingY="spacing.5">
-                    <UnorderedList size="small">
+                    <List variant="unordered" size="small" icon={CheckCircleIcon} iconColor="feedback.icon.positive.intense">
                       {product.highlights.map((h) => (
                         <ListItem key={h}>{h}</ListItem>
                       ))}
-                    </UnorderedList>
+                    </List>
                   </Box>
                 </TabPanel>
 
