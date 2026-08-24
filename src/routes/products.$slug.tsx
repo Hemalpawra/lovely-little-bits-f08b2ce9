@@ -1,7 +1,6 @@
 import { ClientOnly, createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 
-import { SiteFooter } from "@/components/store/SiteFooter";
 import { SiteHeader } from "@/components/store/SiteHeader";
 import { formatPrice, getProduct, relatedProducts } from "@/lib/catalog";
 
@@ -59,7 +58,6 @@ function ProductNotFound() {
           Browse all products
         </Link>
       </div>
-      <SiteFooter />
     </div>
   );
 }
@@ -90,7 +88,6 @@ function ProductDetail() {
           </Suspense>
         </ClientOnly>
       </main>
-      <SiteFooter />
     </div>
   );
 }

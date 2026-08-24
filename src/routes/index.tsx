@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 
 import { ProductCard } from "@/components/store/ProductCard";
-import { SiteFooter } from "@/components/store/SiteFooter";
 import { SiteHeader } from "@/components/store/SiteHeader";
 import hero from "@/assets/hero-tech.jpg";
 import { categories, formatPrice, products, type ProductSearch } from "@/lib/catalog";
@@ -263,7 +262,6 @@ function Index() {
         </section>
       </main>
 
-      <SiteFooter />
 
       <button onClick={() => openChat()} className="fixed bottom-5 right-5 z-40 flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-lg hover:opacity-90">
         <MessageSquare className="h-4 w-4" /> Ask AI

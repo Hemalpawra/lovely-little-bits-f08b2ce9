@@ -1,7 +1,6 @@
 import { ClientOnly, createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 
-import { SiteFooter } from "@/components/store/SiteFooter";
 import { SiteHeader } from "@/components/store/SiteHeader";
 
 const CheckoutBlade = lazy(() => import("@/components/blade/CheckoutBlade"));
@@ -42,7 +41,6 @@ function CheckoutPage() {
           </Suspense>
         </ClientOnly>
       </main>
-      <SiteFooter />
     </div>
   );
 }
