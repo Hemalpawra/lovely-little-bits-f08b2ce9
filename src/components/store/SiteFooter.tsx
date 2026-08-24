@@ -8,10 +8,6 @@ const footerCols = [
     links: ["All Products", "Laptops", "Mobile", "Accessories", "Audio", "Deals"],
   },
   {
-    title: "Help & Support",
-    links: ["Help Center", "Track Order", "Returns & Refunds", "Shipping Info", "FAQ", "Contact Us"],
-  },
-  {
     title: "Policies",
     links: [
       "Terms & Conditions",
