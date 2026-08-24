@@ -81,7 +81,6 @@ const Row = ({ label, children }: { label: string; children: React.ReactNode }) 
 );
 
 export default function OrderSuccessBlade() {
-  const { openChat } = useAiChat();
   const [invoiceOpen, setInvoiceOpen] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [trackingExpanded, setTrackingExpanded] = useState(true);
