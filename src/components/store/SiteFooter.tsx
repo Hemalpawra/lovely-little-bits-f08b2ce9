@@ -7,16 +7,6 @@ const footerCols = [
     title: "Shop",
     links: ["All Products", "Laptops", "Mobile", "Accessories", "Audio", "Deals"],
   },
-  {
-    title: "Policies",
-    links: [
-      "Terms & Conditions",
-      "Privacy Policy",
-      "Cancellation Policy",
-      "Return Policy",
-      "Shipping Policy",
-    ],
-  },
 ];
 
 export function SiteFooter() {
