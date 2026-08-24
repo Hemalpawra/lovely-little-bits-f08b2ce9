@@ -384,7 +384,6 @@ export default function CheckoutBlade() {
                     <>
                       <RadioGroup
                         label=""
-                        accessibilityLabel="Delivery address"
                         value={selectedAddress}
                         onChange={({ value }) => setSelectedAddress(value)}
                         orientation="horizontal"
@@ -430,7 +429,6 @@ export default function CheckoutBlade() {
 
                   <RadioGroup
                     label=""
-                    accessibilityLabel="Shipping method"
                     value={shipping}
                     onChange={({ value }) => setShipping(value)}
                   >
