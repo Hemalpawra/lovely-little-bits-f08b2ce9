@@ -1,9 +1,9 @@
 import { defineMcp } from "@lovable.dev/mcp-js";
-
-type McpTools = Parameters<typeof defineMcp>[0]["tools"];
 import searchProductsTool from "./tools/search-products";
 import getProductTool from "./tools/get-product";
 import listCategoriesTool from "./tools/list-categories";
+
+type McpTools = Parameters<typeof defineMcp>[0]["tools"];
 
 export default defineMcp({
   name: "warm-welcome",
