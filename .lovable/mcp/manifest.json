@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "sdk_version": "0.28.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "warm-welcome",
+      "version": "0.1.0",
+      "title": "Warm Welcome"
+    },
+    "tools": [
+      {
+        "name": "list_categories",
+        "title": "List categories and brands",
+        "description": "List all Acme Store product categories (with product counts) and available brands.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "search_products",
+        "title": "Search products",
+        "description": "Search the Acme Store catalog by keyword, category, brand, price range or stock status. Returns matching products with prices in INR.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "query": {
+              "description": "Free-text search over name, subtitle and brand.",
+              "type": "string"
+            },
+            "category": {
+              "description": "Category slug. One of: headphones-earbuds, laptops, mobile, wearables, speakers, accessories",
+              "type": "string"
+            },
+            "brand": {
+              "description": "Brand name. One of: Anker, Apple, Dell, Fire-Boltt, Google, HP, JBL, Lenovo, Marshall, Noise, OnePlus, Samsung, Sennheiser, Sony, Spigen, boAt",
+              "type": "string"
+            },
+            "maxPrice": {
+              "description": "Maximum price in INR.",
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "minPrice": {
+              "description": "Minimum price in INR.",
+              "type": "number",
+              "minimum": 0
+            },
+            "inStockOnly": {
+              "description": "Only return products that are in stock.",
+              "type": "boolean"
+            },
+            "limit": {
+              "description": "Max results (default 10).",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_product",
+        "title": "Get product details",
+        "description": "Get full details for one Acme Store product by its slug: price, discount, rating, stock, description, highlights, specifications and related products.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Product slug, e.g. from search_products."
+            }
+          },
+          "required": [
+            "slug"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
